@@ -1,6 +1,8 @@
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 
 export default function Login() {
+  const navigate = useNavigate();
+
   return (
     <div className="flex">
       {/* Left Section */}
@@ -43,6 +45,11 @@ export default function Login() {
               name="account"
               id="demo"
               className="w-full px-2.5 py-2 rounded-md border border-slate-200 text-[13px] mt-1 mb-5"
+              onChange={(e) => {
+                const value = e.target.value;
+                if (value === "superAdmin") navigate("/login-company");
+                else if (value === "demoCrew") navigate("/login-crew");
+              }}
             >
               <option value="">--- Select a demo account ---</option>
               <option value="superAdmin">Super Admin</option>
@@ -97,8 +104,8 @@ export default function Login() {
           </button>
 
           {/* Bottom Links */}
-          <p className="pt-5 border-t border-slate-100 text-[13px] text-slate-500 text-center mt-5 mb-0">
-            Don't have an account? &nbsp;
+          <div className="pt-5 border-t border-slate-100 text-[13px] text-slate-500 text-center mt-5 mb-0">
+            <span>Don't have an account?</span> &nbsp;
             <NavLink
               className="text-slate-600 font-medium"
               to="/signup/company"
@@ -111,7 +118,7 @@ export default function Login() {
                 Register as a crew
               </NavLink>
             </p>
-          </p>
+          </div>
         </form>
       </div>
     </div>
