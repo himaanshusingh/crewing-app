@@ -1,4 +1,4 @@
-const solutions = [
+export const SOLUTIONS = [
   {
     sno: 1,
     title: "Pool Management",
@@ -15,5 +15,3 @@ const solutions = [
     para: "Captains manage work/rest hours, payroll, and appraisals offline. Data syncs when connectivity is available, keeping shore teams updated.",
   },
 ];
-
-export default solutions;

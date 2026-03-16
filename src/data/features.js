@@ -1,4 +1,4 @@
-const featuresCard = [
+export const FEATURES_CARD = [
   {
     img: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Ccircle fill='%233b82f6' opacity='.2' cx='24' cy='24' r='20'/%3E%3Cpath fill='%232e5a87' d='M24 14l-8 8 4 4 12-12-4-4-8 8z'/%3E%3C/svg%3E",
     imgBg: "#EFF6FF",
@@ -72,5 +72,3 @@ const featuresCard = [
     para: "Connect with payroll, AIS, and training providers. REST API for custom integrations and automation.",
   },
 ];
-
-export default featuresCard;
