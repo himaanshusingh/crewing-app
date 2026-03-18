@@ -7,12 +7,12 @@ const initialDetails = { email: "", password: "" };
 export default function LoginForm() {
   const navigate = useNavigate();
 
-  const [detail, setDetail] = useState(initialDetails);
-  const { email, password } = detail;
+  const [details, setDetails] = useState(initialDetails);
+  const { email, password } = details;
 
   function handleChange(e) {
     const { type, value } = e.target;
-    setDetail((prev) => ({ ...prev, [type]: value }));
+    setDetails((prev) => ({ ...prev, [type]: value }));
   }
 
   function handleSubmit(e) {
@@ -22,7 +22,13 @@ export default function LoginForm() {
       .then((res) =>
         navigate("/login-company", { state: { company: res.data } }),
       )
-      .catch((err) => console.log(err));
+      .catch((err) => {
+        console.log(err);
+        axios
+          .post("http://localhost:3000/crew/login", { email, password })
+          .then((res) => navigate("/login-crew", { state: { crew: res.data } }))
+          .catch((err) => navigate("/login-crew"));
+      });
   }
 
   return (
@@ -72,7 +78,7 @@ export default function LoginForm() {
           </label>
           <input
             type="email"
-            placeholder="you@company.com"
+            placeholder="example@email.com"
             id="email"
             className="w-full px-3.5 py-2.5 border border-slate-200 rounded-lg text-[15px] transition-[border-color,box-shadow] duration-200 box-border mb-4"
             onChange={handleChange}

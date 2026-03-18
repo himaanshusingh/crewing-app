@@ -9,8 +9,13 @@ export default function Company() {
   if (!company) {
     return (
       <div style={{ padding: "2rem" }}>
-        <h2>No company data found</h2>
-        <button onClick={() => navigate("/login")}>Go back to login</button>
+        <h2>No Data found</h2>
+        <button
+          onClick={() => navigate("/login")}
+          className="w-35 mt-3 py-3.5 bg-blue-600 text-white border-none rounded-lg text-[15px] font-semibold cursor-pointer"
+        >
+          Go back to login
+        </button>
       </div>
     );
   }
